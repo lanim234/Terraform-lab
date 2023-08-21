@@ -1,27 +1,49 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.16"
-    }
-  }
-
-  required_version = ">= 1.2.0"
+module "frontend" {
+  source = "./ec2"
+  name   = "frontend"
 }
 
-provider "aws" {
-  region  = "us-east-2"
+module "mongodb" {
+  source = "./ec2"
+  name   = "mongodb"
 }
 
-resource "aws_instance" "app_server" {
-  ami           = "ami-0ccabb5f82d4c9af5"
-  instance_type = "t2.micro"
-
-  tags = {
-    Name = var.instance_name
-  }
+module "catalogue" {
+  source = "./ec2"
+  name   = "catalogue"
 }
 
-output "instance_ip_addr" {
-  value = aws_instance.app_server.private_ip
+module "cart" {
+  source = "./ec2"
+  name   = "cart"
+}
+
+module "payment" {
+  source = "./ec2"
+  name   = "payment"
+}
+
+module "redis" {
+  source = "./ec2"
+  name   = "redis"
+}
+
+module "user" {
+  source = "./ec2"
+  name   = "user"
+}
+
+module "mysql" {
+  source = "./ec2"
+  name   = "mysql"
+}
+
+module "rabbitmq" {
+  source = "./ec2"
+  name   = "rabbitmq"
+}
+
+module "Shipping" {
+  source = "./ec2"
+  name   = "frontend"
 }
