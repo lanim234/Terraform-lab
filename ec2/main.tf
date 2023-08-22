@@ -26,9 +26,9 @@ resource "aws_instance" "web" {
 
 
 data "aws_ami" "lake" {
-  owners      = ["973714476881"]
+  owners      = ["617766776617"]
   most_recent = true
-  name_regex  = "Centos-8-Devops-Practice"
+  name_regex  = "devops-practice"
 }
 
 resource "aws_security_group" "sg" {
