@@ -13,7 +13,7 @@ resource "aws_instance" "web" {
       type = "ssh"
       user = "centos"
       password = "DevOps321"
-      host = self.public_ip
+      host = aws_instance.web.public_ip
     }
 
     inline = [
@@ -27,7 +27,7 @@ resource "aws_instance" "web" {
 
 data "aws_ami" "example" {
   most_recent = true
-  owners = 973714476881
+  owners = ["973714476881"]
   name_regex = "Centos-8-Devops-Practice"
 
 }
