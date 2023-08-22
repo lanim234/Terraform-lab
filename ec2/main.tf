@@ -1,5 +1,5 @@
 resource "aws_instance" "web" {
-  ami           = data.aws_ami.example.id
+  ami           = data.aws_ami.lake.id
   instance_type = "t3.small"
   vpc_security_group_ids = [aws_security_group.sg.id]
 
@@ -25,11 +25,10 @@ resource "aws_instance" "web" {
 }
 
 
-data "aws_ami" "example" {
+data "aws_ami" "lake" {
   owners      = ["973714476881"]
   most_recent = true
   name_regex  = "Centos-8-Devops-Practice"
-
 }
 
 resource "aws_security_group" "sg" {
