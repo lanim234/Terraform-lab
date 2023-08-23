@@ -1,5 +1,5 @@
 variable "letn" {
-        default = ["apple", "orange", "mango", "pawpaw"]
+        default = ["apple", "orange", "mango", "pawpaw", "tangerine"]
 }
 
 output "letn" {
