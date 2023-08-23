@@ -1,4 +1,4 @@
-variable = "letn" {
+variable "letn" {
         default = "manchester United is the greatest football club in the world"
 }
 
