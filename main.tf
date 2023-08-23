@@ -1,49 +1,23 @@
-module "frontend" {
+module = "instances" {
+  for_each = var.instances
   source = "./ec2"
-  name   = "frontend"
+  name = each.key
+
 }
 
-module "mongodb" {
-  source = "./ec2"
-  name   = "mongodb"
+variable "instances" {
+  default = {
+    frontend = {}
+    user = {}
+    rabbitmq = {}
+    catalogue = {}
+    shipping = {}
+    mysql = {}
+    mongodb = {}
+    redis = {}
+    cart = {}
+    payment = {}
+  }
 }
 
-module "catalogue" {
-  source = "./ec2"
-  name   = "catalogue"
-}
 
-module "cart" {
-  source = "./ec2"
-  name   = "cart"
-}
-
-module "payment" {
-  source = "./ec2"
-  name   = "payment"
-}
-
-module "redis" {
-  source = "./ec2"
-  name   = "redis"
-}
-
-module "user" {
-  source = "./ec2"
-  name   = "user"
-}
-
-module "mysql" {
-  source = "./ec2"
-  name   = "mysql"
-}
-
-module "rabbitmq" {
-  source = "./ec2"
-  name   = "rabbitmq"
-}
-
-module "Shipping" {
-  source = "./ec2"
-  name   = "frontend"
-}
