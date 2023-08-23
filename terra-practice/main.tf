@@ -3,5 +3,5 @@ variable "letn" {
 }
 
 output "letn" {
-        value = var.letn >110 ? "surplus quantity" : "less quantity"
+        value = var.letn >90 ? "surplus quantity" : "less quantity"
 }
