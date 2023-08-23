@@ -1,7 +1,7 @@
 variable "letn" {
-        default = ["apple", "orange", "mango", "tangerine", "Ovacado"]
+        default = 100
 }
 
 output "letn" {
-        value = length(var.letn)
+        value = var.letn >100 ? "surplus quantity" : "less quantity"
 }
