@@ -1,21 +1,17 @@
-module "instances" {
-  for_each = var.instances
-  source = "./ec2"
-  name   = each.key
+resource "aws_ssm_parameter" "man" {
+  count = length(var.man)
+  name  = var.man[count.index].name
+  type  = var.man[count.index].type
+  value = var.man[count.index].value
 }
 
-variable "instances" {
-  default = {
-    frontend  = {}
-    user      = {}
-    cart      = {}
-    shipping  = {}
-    redis     = {}
-    mysql     = {}
-    rabbitmq  = {}
-    catalogue = {}
-    payment   = {}
-    mongodb   = {}
-    man       = {}
-  }
+
+
+
+variable "man" {
+  default = [
+    {name = "demo1", value = "demo2", type = "demo3" },
+    {name = "demo2", value = "demo2", type =  "demo3" },
+    {name = "demo3", value = "demo3", type = "demo3" }
+  ]
 }
