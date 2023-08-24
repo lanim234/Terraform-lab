@@ -1,8 +1,8 @@
 resource "aws_ssm_parameter" "man" {
   count = length(var.man)
   name  = var.man[count.index].name
-  type = var.man[count.index].type
   value = var.man[count.index].value
+  type = var.man[count.index].type
 }
 
 
