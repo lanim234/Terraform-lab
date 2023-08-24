@@ -10,8 +10,8 @@ resource "aws_ssm_parameter" "man" {
 
 variable "man" {
   default = [
-    {name = "demo1", value = "demo2", "demo3" }
-    {name = "demo2", value = "demo2", "demo3"}
-    {name = "demo3", value = "demo3", "demo3"}
+    {name = "demo1", value = "demo2", type = "demo3" }
+    {name = "demo2", value = "demo2", type =  "demo3" }
+    {name = "demo3", value = "demo3", type = "demo3" }
   ]
 }
